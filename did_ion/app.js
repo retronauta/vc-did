@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-// app.use("/api/ion", require("./routes/index"));
+app.use("/api/ion", require("./routes/ion.routes"));
 
 app.use(express.json());
 app.listen(PORT, () => {
