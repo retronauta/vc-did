@@ -1,0 +1,23 @@
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
+  ],
+  "id": "https://mercuryuniversity.example/credentials/007",
+  "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+  "issuanceDate": "2021-07-02T11:12:42Z",
+  "credentialSubject": {
+    "id": "did:example:42c586e633314200b006660af0a086d9",
+    "degree": "Bachelor of Science",
+    "degreeType": "BachelorDegree",
+    "degreeSchool": "Mercury University"
+  },
+  "issuer": "https://verifiablecredential.io/playground/controller.json",
+  "proof": {
+    "type": "Ed25519Signature2018",
+    "created": "2021-07-07T00:45:40Z",
+    "jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..eU1LNOJeiyguAVBBLmf4bY5qwcDWBpaRYtUT0-qIzOMEs01sGWCfmnN6Sz8mfSDvKtQENDYwPfAiTpE4weq4CQ",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "https://verifiablecredential.io/playground/public-key.json"
+  }
+}
