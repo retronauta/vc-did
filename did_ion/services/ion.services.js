@@ -1,9 +1,9 @@
 const ION = require("@decentralized-identity/ion-tools");
-const publicKey = require("../keys.json").publicJwk;
+const publicKey = require("../keys.json").publicJwk || undefined;
 
 const generateAndSaveKeys = async () => {
   try {
-    const authKeys = await ION.generateKeyPair();
+    const authKeys = await ION.generateKeyPair("Ed25519");
     return authKeys;
   } catch (error) {
     console.log(error.message);
@@ -18,7 +18,7 @@ const createDID = async () => {
         publicKeys: [
           {
             id: "key-1",
-            type: "EcdsaSecp256k1VerificationKey2019",
+            type: "Ed25519VerificationKey2020",
             publicKeyJwk: publicKey,
             purposes: ["authentication"],
           },
