@@ -5,7 +5,12 @@ const fs = require("fs");
 const generateAndSaveKeys = async () => {
   try {
     const authKeys = await ION.generateKeyPair("Ed25519");
-    await writeFile("./keys.json", JSON.stringify(authKeys));
+    const namePublicKey = authKeys.publicJwk.x;
+    fs.mkdirSync(`./vcs/keys/${namePublicKey}`);
+    await writeFile(
+      `./vcs/keys/${namePublicKey}/${namePublicKey}.json`,
+      JSON.stringify(authKeys)
+    );
     console.log("Writing private keys to keys.json");
     return authKeys;
   } catch (error) {
@@ -13,16 +18,13 @@ const generateAndSaveKeys = async () => {
   }
 };
 
-const createDID = async () => {
+const createDID = async public => {
   try {
-    fs.open("./keys.json", "r", (err, fd) => {
-      if (err) {
-        return "No existe el archivo";
-      }
-    });
-
-    let publicKeys2 = await readFile("./keys.json", "utf-8");
-    const public = JSON.parse(publicKeys2);
+    // fs.open("./keys.json", "r", (err, fd) => {
+    //   if (err) {
+    //     return "No existe el archivo";
+    //   }
+    // });
 
     let did = new ION.DID({
       content: {
@@ -49,12 +51,19 @@ const createDID = async () => {
     let createRequest = await did.generateRequest(0);
     let anchorResponse = await ION.anchor(createRequest);
     let ionOps = await did.getAllOperations();
-    await writeFile("./did.json", anchorResponse);
-    await writeFile("./uris.json", JSON.stringify({ uri, shortUri }));
-    await writeFile("./ionOps.json", JSON.stringify(ionOps));
+    fs.mkdirSync(`./vcs/dids/${shortUri}`);
+    await writeFile(`./vcs/dids/${shortUri}/did-${shortUri}`, anchorResponse);
+    await writeFile(
+      `./vcs/dids/${shortUri}/uris-${shortUri}`,
+      JSON.stringify({ uri, shortUri })
+    );
+    await writeFile(
+      `./vcs/dids/${shortUri}/ops-${shortUri}`,
+      JSON.stringify(ionOps)
+    );
     return { shortUri, uri, anchorResponse, ionOps };
   } catch (error) {
-    console.log(error.message);
+    console.log(error);
   }
 };
 

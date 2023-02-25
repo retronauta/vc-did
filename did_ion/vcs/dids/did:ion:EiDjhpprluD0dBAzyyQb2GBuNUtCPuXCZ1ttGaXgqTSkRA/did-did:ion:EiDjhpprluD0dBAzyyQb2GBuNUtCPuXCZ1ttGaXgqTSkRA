@@ -1,0 +1,42 @@
+{
+  "@context": "https://w3id.org/did-resolution/v1",
+  "didDocument": {
+    "id": "did:ion:EiDjhpprluD0dBAzyyQb2GBuNUtCPuXCZ1ttGaXgqTSkRA",
+    "@context": [
+      "https://www.w3.org/ns/did/v1",
+      {
+        "@base": "did:ion:EiDjhpprluD0dBAzyyQb2GBuNUtCPuXCZ1ttGaXgqTSkRA"
+      }
+    ],
+    "service": [
+      {
+        "id": "#domain-1",
+        "type": "LinkedDomains",
+        "serviceEndpoint": "https://constata.eu/"
+      }
+    ],
+    "verificationMethod": [
+      {
+        "id": "#key-1",
+        "controller": "did:ion:EiDjhpprluD0dBAzyyQb2GBuNUtCPuXCZ1ttGaXgqTSkRA",
+        "type": "Ed25519VerificationKey2020",
+        "publicKeyJwk": {
+          "kty": "OKP",
+          "crv": "Ed25519",
+          "x": "YQADCTDoFIuv6mP8CQpKBlshrAxC4p1BHSc3m25fTO0"
+        }
+      }
+    ],
+    "authentication": [
+      "#key-1"
+    ]
+  },
+  "didDocumentMetadata": {
+    "method": {
+      "published": false,
+      "recoveryCommitment": "EiAgVFCvjD6ctA9TJwh7xj3gOsEOwH8cL-1ek2JBq-ZXdg",
+      "updateCommitment": "EiCdzlEDnMWc8--khIVy-_cHt_joj7R2BB-o-CYbRxqBKA"
+    },
+    "canonicalId": "did:ion:EiDjhpprluD0dBAzyyQb2GBuNUtCPuXCZ1ttGaXgqTSkRA"
+  }
+}

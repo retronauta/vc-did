@@ -1,11 +1,11 @@
 {
   "@context": "https://w3id.org/did-resolution/v1",
   "didDocument": {
-    "id": "did:ion:EiAQzBBu2F8TuLGmatRNtU4RUWig85NJKFrt0pQZpMniOQ",
+    "id": "did:ion:EiAfMI9BJtb0Ek0lg2ENnbCjLR8YIAw5PzaagkV7FuDB8Q",
     "@context": [
       "https://www.w3.org/ns/did/v1",
       {
-        "@base": "did:ion:EiAQzBBu2F8TuLGmatRNtU4RUWig85NJKFrt0pQZpMniOQ"
+        "@base": "did:ion:EiAfMI9BJtb0Ek0lg2ENnbCjLR8YIAw5PzaagkV7FuDB8Q"
       }
     ],
     "service": [
@@ -18,19 +18,19 @@
     "verificationMethod": [
       {
         "id": "#key-1",
-        "controller": "did:ion:EiAQzBBu2F8TuLGmatRNtU4RUWig85NJKFrt0pQZpMniOQ",
+        "controller": "did:ion:EiAfMI9BJtb0Ek0lg2ENnbCjLR8YIAw5PzaagkV7FuDB8Q",
         "type": "Ed25519VerificationKey2020",
         "publicKeyJwk": {
           "publicJwk": {
             "kty": "OKP",
             "crv": "Ed25519",
-            "x": "xMSFoMPXGtVZLsWqlJ9Kqla9u-teQA1knASdd_xvui4"
+            "x": "yVBN6KgA80Mil8YUyzfm-O4qsZgSEHB9cagOm86FZFM"
           },
           "privateJwk": {
             "kty": "OKP",
             "crv": "Ed25519",
-            "x": "xMSFoMPXGtVZLsWqlJ9Kqla9u-teQA1knASdd_xvui4",
-            "d": "0v--QkzXL9IWwwNZ6VN0bfcpX-p0zc66RHqpzvLthvM"
+            "x": "yVBN6KgA80Mil8YUyzfm-O4qsZgSEHB9cagOm86FZFM",
+            "d": "qTrdXtGdKbotGIqs3p4U-73DGRddhvHfLbJk9I3nE9Q"
           }
         }
       }
@@ -42,9 +42,9 @@
   "didDocumentMetadata": {
     "method": {
       "published": false,
-      "recoveryCommitment": "EiCBxU88RRdW2VRhOhmtC5z1_twS4ziTnWE6a5Qf0vPEcA",
-      "updateCommitment": "EiAFSOfJuqt7lRekjWHAxShaLveoFsgDSWdUOhFHeZCDJQ"
+      "recoveryCommitment": "EiAhGaAToMdz94hZjLi6jo83haX68FU5gSNWVoH-NXLaGw",
+      "updateCommitment": "EiACLU3ahcSf9ITWlKSkosRQg_UJRM0L4r_Jjz-qRF-L_A"
     },
-    "canonicalId": "did:ion:EiAQzBBu2F8TuLGmatRNtU4RUWig85NJKFrt0pQZpMniOQ"
+    "canonicalId": "did:ion:EiAfMI9BJtb0Ek0lg2ENnbCjLR8YIAw5PzaagkV7FuDB8Q"
   }
 }

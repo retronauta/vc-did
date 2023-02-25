@@ -8,7 +8,7 @@ const { publicKey } = require("../services/ion.services");
 const router = express.Router();
 
 router.get("/generateKeys", generateKeys);
-router.get("/createDID", issueDID);
+router.post("/createDID", issueDID);
 router.get("/readKeys", readKeys);
 
 module.exports = router;

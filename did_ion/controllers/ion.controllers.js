@@ -13,7 +13,8 @@ const generateKeys = async (req, res) => {
 
 const issueDID = async (req, res) => {
   try {
-    const { shortUri, uri, anchorResponse } = await createDID();
+    const { publicJwk } = req.body;
+    const { shortUri, uri, anchorResponse } = await createDID(publicJwk);
     const uris = { shortUri, uri };
     res.send({
       mesage: "Created and saved did",
