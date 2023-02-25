@@ -1,28 +1,38 @@
 const { generateAndSaveKeys, createDID } = require("../services/ion.services");
-const { writeFile } = require("fs/promises");
+const fs = require("fs");
 
 const generateKeys = async (req, res) => {
   try {
     let keys = await generateAndSaveKeys();
-    await writeFile("./keys.json", JSON.stringify(keys));
-    console.log("Wrote private key to keys.json");
-    res.status(200).send({ keys });
+    res.status(201).send({ keys });
   } catch (error) {
     console.log(error.message);
+    res.end();
   }
 };
 
 const issueDID = async (req, res) => {
   try {
-    const { shortUri, uri, anchorResponse, ionOps } = await createDID();
+    const { shortUri, uri, anchorResponse } = await createDID();
     const uris = { shortUri, uri };
-    await writeFile("./did.json", anchorResponse);
-    await writeFile("./uris.json", JSON.stringify(uris));
-    await writeFile("./ionOps.json", JSON.stringify(ionOps));
-    res.send({ mesage: "Created and saved did" });
+    res.send({
+      mesage: "Created and saved did",
+      uris,
+      DID: JSON.parse(anchorResponse),
+    });
+  } catch (error) {
+    console.log(error.message);
+    res.end();
+  }
+};
+
+const readKeys = async (req, res) => {
+  try {
+    let keys = fs.readFileSync("./keys.json", "utf-8");
+    res.send(keys);
   } catch (error) {
     console.log(error.message);
   }
 };
 
-module.exports = { generateKeys, issueDID };
+module.exports = { generateKeys, issueDID, readKeys };

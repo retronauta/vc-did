@@ -1,1 +1,13 @@
-{"publicJwk":{"kty":"OKP","crv":"Ed25519","x":"DkZA0ZxYQUfsyigOkznQhLWptqgGz-cQyFXJ5uD-4c4"},"privateJwk":{"kty":"OKP","crv":"Ed25519","x":"DkZA0ZxYQUfsyigOkznQhLWptqgGz-cQyFXJ5uD-4c4","d":"f_VPKR-clOfYxXmFD-tJ9mznrv-oPSo22umS4rqdXvg"}}
+{
+  "publicJwk": {
+    "kty": "OKP",
+    "crv": "Ed25519",
+    "x": "xMSFoMPXGtVZLsWqlJ9Kqla9u-teQA1knASdd_xvui4"
+  },
+  "privateJwk": {
+    "kty": "OKP",
+    "crv": "Ed25519",
+    "x": "xMSFoMPXGtVZLsWqlJ9Kqla9u-teQA1knASdd_xvui4",
+    "d": "0v--QkzXL9IWwwNZ6VN0bfcpX-p0zc66RHqpzvLthvM"
+  }
+}

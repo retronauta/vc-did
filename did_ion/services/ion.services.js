@@ -1,9 +1,12 @@
+const { writeFile, readFile } = require("fs/promises");
 const ION = require("@decentralized-identity/ion-tools");
-const publicKey = require("../keys.json").publicJwk || undefined;
+const fs = require("fs");
 
 const generateAndSaveKeys = async () => {
   try {
     const authKeys = await ION.generateKeyPair("Ed25519");
+    await writeFile("./keys.json", JSON.stringify(authKeys));
+    console.log("Writing private keys to keys.json");
     return authKeys;
   } catch (error) {
     console.log(error.message);
@@ -12,14 +15,22 @@ const generateAndSaveKeys = async () => {
 
 const createDID = async () => {
   try {
-    if (!publicKey) return undefined;
+    fs.open("./keys.json", "r", (err, fd) => {
+      if (err) {
+        return "No existe el archivo";
+      }
+    });
+
+    let publicKeys2 = await readFile("./keys.json", "utf-8");
+    const public = JSON.parse(publicKeys2);
+
     let did = new ION.DID({
       content: {
         publicKeys: [
           {
             id: "key-1",
             type: "Ed25519VerificationKey2020",
-            publicKeyJwk: publicKey,
+            publicKeyJwk: public,
             purposes: ["authentication"],
           },
         ],
@@ -38,6 +49,9 @@ const createDID = async () => {
     let createRequest = await did.generateRequest(0);
     let anchorResponse = await ION.anchor(createRequest);
     let ionOps = await did.getAllOperations();
+    await writeFile("./did.json", anchorResponse);
+    await writeFile("./uris.json", JSON.stringify({ uri, shortUri }));
+    await writeFile("./ionOps.json", JSON.stringify(ionOps));
     return { shortUri, uri, anchorResponse, ionOps };
   } catch (error) {
     console.log(error.message);
