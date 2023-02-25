@@ -1,0 +1,35 @@
+{
+  "@context": ["https://www.w3.org/2018/credentials/v1", "https://schema.org/"],
+  "id": "agente educativo al que esta asociado",
+  "type": ["VerifiableCredential", "UniversityDegreeCredential"],
+  "issuer": "https://example.edu/issuers/565049",
+  "issuanceDate": "2010-01-01T00:00:00Z",
+  "credentialSdubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "degree": {
+      "type": "BachelorDegree",
+      "name": "Bachelor of Science and Arts"
+    }
+  },
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "name": "Juana Perez",
+    "alumniOf": "institucion educativa",
+    "email": "juana@mail.com",
+    "alumni": "Pepe perez",
+    "degree": {
+      "type": "Diplomatura",
+      "name": "Diplomatura terciaria en análisis de datos",
+      "educationalCredentialAwarded": "Higher National Certificate in Accounting",
+      "startDate": "2016-04-21T20:00",
+      "endDate": "",
+      "releaseDate": "2016-04-21T20:00",
+      "description": ""
+    },
+    "provider": {
+      "id": "did:ion:r09304jdfj90rq24rjfd",
+      "location": "",
+      "name": "university"
+    }
+  }
+}
