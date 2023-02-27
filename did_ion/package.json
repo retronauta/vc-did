@@ -11,8 +11,13 @@
   "license": "ISC",
   "dependencies": {
     "@decentralized-identity/ion-tools": "^1.0.5",
+    "@transmute/did-key-common": "^0.3.0-unstable.10",
+    "@transmute/did-key-ed25519": "^0.3.0-unstable.10",
+    "@transmute/verifiable-credentials": "^0.0.1",
+    "did-method-key": "^0.7.0",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "tslib": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

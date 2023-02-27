@@ -7,6 +7,7 @@ app.use(express.json());
 
 app.use("/api/ion", require("./routes/ion.routes"));
 app.use("/api/vc", require("./routes/vc.routes"));
+app.use("/api/transmute", require("./routes/transmute.routes"));
 
 app.use(express.json());
 app.listen(PORT, () => {
